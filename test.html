@@ -1,0 +1,53 @@
+<!DOCTYPE Html>
+<html>
+<head><title>Get Data From Api's</title></head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+     <!-- adding bootstrap css from cdn-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- adding bootstrap js from cdn -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    
+
+    
+    <script type="text/javascript">
+    
+        function getData()
+        {
+            var name=document.getElementById("name").value;
+            var password=document.getElementById("password").value;
+            
+            var url="http://localhost:4050/api/customers?name="+name+"&password="+password;
+            
+            $.getJSON(url,function(data){
+                console.log(data);
+                document.write(data);
+            });
+        }
+        
+    </script>
+    
+    
+    <body>
+    
+        <div class="container">
+           <div class="form-group">
+             <label for="name">Enter Your name:</label>
+             <input type="text" class="form-control" id="name"/>
+           </div>
+             <div class="form-group">
+             <label for="password">Enter Your Password:</label>
+             <input type="text" class="form-control" id="password"/>
+           </div>
+            
+            <button class="btn btn-outline-info" onclick="getData()">Log In</button>
+        </div>
+    
+    
+    </body>
+</html>
